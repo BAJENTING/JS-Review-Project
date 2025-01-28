@@ -4,7 +4,7 @@
 let todos = [];
 
 // DOM Elements
-const todoFOrm = document.getElementById('todo-form');
+const todoForm = document.getElementById('todo-form');
 const todoInput = document.getElementById('todo-input');
 const todoList = document.getElementById('todo-list');
 
@@ -44,3 +44,15 @@ function editTodo(index) {
 }
 
 // Funtion to delete a todo 
+function deleteTodo(index) {
+    if (confirm('Are you sure you want to delete this todo')) {
+        todos.splice(index, 1);
+        renderTodos();
+    }
+}
+
+// Event Listeners
+todoForm.addEventListener('submit', addTodo);
+
+// Initial render
+renderTodos();
